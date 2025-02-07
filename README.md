@@ -1,16 +1,16 @@
 # PassForge - Word-Based Password Generator
 
-## 🔑 Overview
+##  Overview
 **PassForge** is a Python-based password generator that transforms words into secure passwords. Users can choose to generate **a fixed number of passwords** or **all possible passwords** based on input criteria.
 
-## 🚀 Features
-- **Two Modes**: Generate a **fixed number** of passwords or **all possible passwords**.
-- Customizable **minimum & maximum length**.
-- Supports **special characters**.
-- **Optional word slicing** for randomness.
-- Saves passwords to `passwords.txt`.
+## Features  
+- [x] Custom base word input  
+- [x] Min/max password length  
+- [x] Optional word slicing/permutation  
+- [x] Special character customization  
+- [x] Output to .txt file
 
-## 🛠️ Installation
+## Installation
 1. **Clone the repository:**
    ```sh
    git clone https://github.com/your-username/PassForge.git
@@ -32,18 +32,24 @@
    Number of passwords to generate: 5
 
 
-4. ## 📂 Output (saved to passwords.txt):
-   exampl!<br>
+4. ## Output (saved to passwords.txt):
+   **Word Slicing Enabled:**
+   exampl1<br>
    exampl@<br>
+   exampl9<br>
+   example1<br>
+   
+   **Word Slicing Disabled:**<br>
+   example2<br>
    example@<br>
-   exampl#<br>
-   example!
+   example9<br>
+   example@9<br>
 
-📌 **Requirements:** 
+    **Requirements**<br>
    Python 3.x
    
-🤝 **Contributing**
-   are welcome! Feel free to submit issues or pull requests.
+   **Contributing**<br>
+   Pull requests welcome! For major changes, open an issue first.
 
-📜 **License:**
+    **License:**<br>
    This project is licensed under the MIT License.
