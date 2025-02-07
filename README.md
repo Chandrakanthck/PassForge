@@ -16,11 +16,11 @@
    git clone https://github.com/your-username/PassForge.git
    cd PassForge
    
-2. ## Run the Script
+2. **Run the Script**
    ```sh
    python passforge.py
    
-3. ## Usage
+3. **Usage**
    **Upon running the script, enter the required inputs:**
    ```sh
    Enter base word: example
@@ -32,24 +32,24 @@
    Number of passwords to generate: 5
 
 
-4. ## Output (saved to passwords.txt):
+4. **Output (saved to passwords.txt):**
    **Word Slicing Enabled:**
    exampl1<br>
    exampl@<br>
    exampl9<br>
    example1<br>
    
-   **Word Slicing Disabled:**<br>
+   **Word Slicing Disabled:** <br>
    example2<br>
    example@<br>
    example9<br>
    example@9<br>
 
-    **Requirements**<br>
+## Requirements**<br>
    Python 3.x
    
-   **Contributing**<br>
+## Contributing <br>
    Pull requests welcome! For major changes, open an issue first.
 
-    **License:**<br>
+## License: <br>
    This project is licensed under the MIT License.
