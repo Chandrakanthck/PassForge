@@ -45,11 +45,11 @@
    example9<br>
    example@9<br>
 
-## Requirements**<br>
+## Requirements <br>
    Python 3.x
    
 ## Contributing <br>
    Pull requests welcome! For major changes, open an issue first.
 
-## License: <br>
+## License <br>
    This project is licensed under the MIT License.
