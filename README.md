@@ -33,7 +33,7 @@
 
 
 4. **Output (saved to passwords.txt):**
-   **Word Slicing Enabled:**
+   **Word Slicing Enabled:** <br>
    exampl1<br>
    exampl@<br>
    exampl9<br>
