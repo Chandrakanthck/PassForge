@@ -1,7 +1,7 @@
 # PassForge - Word-Based Password Generator
 
 ##  Overview
-**PassForge** is a Python-based password generator that transforms words into secure passwords. Users can choose to generate **a fixed number of passwords** or **all possible passwords** based on input criteria.
+**PassForge** is a Python-based password generator that transforms words into passwords. Users can choose to generate **a fixed number of passwords** or **all possible passwords** based on input criteria.
 
 ## Features  
 - [x] Custom base word input  
