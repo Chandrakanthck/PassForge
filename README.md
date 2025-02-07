@@ -33,17 +33,17 @@
 
 
 4. ## 📂 Output (saved to passwords.txt):
-   exampl!
-   exampl@
-   example@
-   exampl#
+   exampl!<br>
+   exampl@<br>
+   example@<br>
+   exampl#<br>
    example!
 
-📌 **Requirements**
+📌 **Requirements:** 
    Python 3.x
    
 🤝 **Contributing**
-   Contributions are welcome! Feel free to submit issues or pull requests.
+   are welcome! Feel free to submit issues or pull requests.
 
-📜 **License**
+📜 **License:**
    This project is licensed under the MIT License.
