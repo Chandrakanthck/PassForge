@@ -1,75 +1,53 @@
-import itertools
 import random
+import string
+from itertools import permutations
 
-def generate_all_passwords(base_word, min_length, max_length, special_chars, allow_slice):
-    """Generates all possible passwords based on given rules."""
-    passwords = set()
-    word_variations = [base_word[:i] for i in range(1, len(base_word) + 1)] if allow_slice else [base_word]
+def generate_sliced_words(base_word, max_permutations=5):
+    sliced_words = set()
+    for perm in permutations(base_word):
+        if len(sliced_words) >= max_permutations:
+            break
+        sliced_word = ''.join(perm)
+        sliced_words.add(sliced_word)
+    return list(sliced_words)
 
-    for word in word_variations:
-        for length in range(min_length, max_length + 1):
-            if len(word) >= length:
-                passwords.add(word[:length])  # Direct slice
-            else:
-                extras = itertools.product(special_chars or "0123456789", repeat=length - len(word))
-                for extra in extras:
-                    passwords.add(word + ''.join(extra))
-
-    return sorted(passwords)
-
-def generate_random_passwords(base_word, min_length, max_length, special_chars, allow_slice, num_passwords):
-    """Generates a fixed number of passwords randomly."""
-    passwords = set()
+def generate_password(base_word, min_length, max_length, special_chars, allow_slice=True):
+    if allow_slice:
+        base_options = generate_sliced_words(base_word)
+    else:
+        base_options = [base_word]
     
-    while len(passwords) < num_passwords:
-        word = base_word[:random.randint(1, len(base_word))] if allow_slice else base_word
-        while len(word) < min_length:
-            word += random.choice(special_chars or "0123456789")
-        passwords.add(word[:max_length])
-
-    return sorted(passwords)
+    chosen_base = random.choice(base_options)
+    
+    remaining_length = random.randint(
+        max(min_length - len(chosen_base), 1),
+        max_length - len(chosen_base)
+    )
+    
+    all_chars = string.digits + special_chars
+    suffix = ''.join(random.choices(all_chars, k=remaining_length))
+    
+    password = chosen_base + suffix
+    return password
 
 def main():
     base_word = input("Enter base word: ").strip()
-
-    while True:
-        try:
-            min_length = int(input("Min password length: "))
-            max_length = int(input("Max password length: "))
-            if min_length > max_length or min_length <= 0:
-                raise ValueError
-            break
-        except ValueError:
-            print("Invalid input! Min length should be ≤ Max length and both positive numbers.")
-
-    special_chars = input("Enter allowed special characters (e.g., @!#): ").strip()
-    allow_slice = input("Allow slicing? (y/n): ").strip().lower() == 'y'
+    min_length = int(input("Min password length (e.g., 8): "))
+    max_length = int(input("Max password length (e.g., 12): "))
+    special_chars = input("Enter special characters (e.g., @!#): ").strip()
+    allow_slice = input("Allow slicing? (y/n): ").lower() == 'y'
+    num_passwords = int(input("Number of passwords to generate: "))
     
-    gen_type = input("Generate (1) Fixed number or (2) All possible? Enter 1 or 2: ").strip()
-    
-    if gen_type == "1":
-        while True:
-            try:
-                num_passwords = int(input("Number of passwords to generate: "))
-                if num_passwords <= 0:
-                    raise ValueError
-                break
-            except ValueError:
-                print("Invalid input! Enter a positive number.")
-
-        passwords = generate_random_passwords(base_word, min_length, max_length, special_chars, allow_slice, num_passwords)
-    
-    elif gen_type == "2":
-        passwords = generate_all_passwords(base_word, min_length, max_length, special_chars, allow_slice)
-    
-    else:
-        print("Invalid option! Exiting...")
-        return
+    passwords = []
+    for _ in range(num_passwords):
+        password = generate_password(
+            base_word, min_length, max_length, special_chars, allow_slice
+        )
+        passwords.append(password)
     
     with open("passwords.txt", "w") as f:
         f.write('\n'.join(passwords))
-
-    print(f"Generated {len(passwords)} passwords. Check passwords.txt!")
+    print(f"\n {num_passwords} passwords generated! Check passwords.txt")
 
 if __name__ == "__main__":
     main()
